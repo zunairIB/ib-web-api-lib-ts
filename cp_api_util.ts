@@ -67,8 +67,6 @@ export const DefaultContract = {
   }
 }
 
-
-
 // Auth Status Response Type - /iserver/auth/status
 export interface AuthStatus {
     "authenticated": boolean,
@@ -79,11 +77,6 @@ export interface AuthStatus {
     "prompts": [
         string
     ] 
-}
-
-export interface SecDef {
-    
-
 }
 
 // Order Request Type - /iserver/account/{accountId}/orders Request
@@ -124,14 +117,6 @@ interface Order {
   
 }
 
-export interface Accounts {
-
-}
-
-export interface Account {
-
-}
-
 // Params for Secdef Search
 export interface SecdefSearchParams {
   "symbol": string,
@@ -161,19 +146,10 @@ const DEFAULT_TRACKER = {
   "ask": 0,
   "last": 0
 }
+
 export const DEFAULT_PRICE_TRACKER = {
   [rand_conid] : DEFAULT_TRACKER
 }
-//{229: <reqId>
-// (2135397206544: 
-// 265598,AAPL,STK,,0,,,SMART,NASDAQ,USD,AAPL,NMS,False,,,,
-// combo:, {'BID': 192.39, 'ASK': 192.42, 'LAST': 192.4, 'oldlast': 192.4, 'oldbid': 192.39, 'oldask': 192.42})
-//, 230: (2135397206608: 4815747,NVDA,STK,,0,,,SMART,NASDAQ,USD,NVDA,NMS,False,,,,
-// combo:, {'BID': 423.96, 'ASK': 424.12, 'LAST': 424.01, 'oldlast': 424.01, 'oldbid': 423.96, 'oldask': 424.12}), 
-// 231: (2135397207888: 9599491,F,STK,,0,,,SMART,NYSE,USD,F,F,False,,,,
-// combo:, {'BID': 15.22, 'ASK': 15.23, 'LAST': 15.22, 'oldlast': 15.22, 'oldbid': 15.22, 'oldask': 15.23}), 
-// 232: (2135397207824: 498843743,GE,STK,,0,,,SMART,NYSE,USD,GE,GE,False,,,,
-// combo:, {'BID': 108.15, 'ASK': 108.63, 'LAST': 108.07, 'oldlast': 108.07, 'oldbid': 108.15, 'oldask': 108.63})}
 
 export const DEFAULT_ORDER = {
   "orders": [

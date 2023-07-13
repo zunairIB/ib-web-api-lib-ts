@@ -8,6 +8,7 @@ import {
         SecdefSearchParams, 
         Tracker,    
         sleep} from './cp_api_util';
+import { MarketDataWebsocket } from './websocket_md';
 
 const base_url = 'https://localhost:5000/v1/api'
 
@@ -163,6 +164,9 @@ async function main(){
     // init mktsnap
     var mktDataRes: MktDataRes
     mktDataRes = await getMktDataSnap({conids: conids, fields : "31,84,86"})
+    
+    MarketDataWebsocket(accountId,conidsArr)
+
     var oldX = {}
     let curr = {}
     
@@ -172,6 +176,8 @@ async function main(){
         oldX = curr
         mktDataRes = await getMktDataSnap({conids: conids, fields : "31,84,86"})
         curr = await populatePriceTracker( mktDataRes)
+        // console.log("old: ", oldX)
+        // console.log("curr: ", curr)
         
         if (Object.keys(oldX).length != 0 ){
             runTradeStrat(accountId, balance, conidsArr, oldX, curr)
@@ -182,9 +188,3 @@ async function main(){
 }
 
 export default main()
-// initialize mktsnap
-// init price track --> two Maps (old and curr)
-// [loop in(inter)] call mktsnap again
-// assign curr to old
-// assign mktsnap return to curr
-// [loop out] call tradestrat with price tracker 
