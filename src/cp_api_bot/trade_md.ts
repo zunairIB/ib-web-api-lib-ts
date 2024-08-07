@@ -59,3 +59,12 @@ export async function wsTradeStrat(oldX: PriceTracker, curr: PriceTracker) {
     }
   }
 }
+
+// try {
+//   wsTradeStrat()
+// }
+// catch(e)
+// {
+//   const error = (e as Error).message
+//   console.log(error)
+// }

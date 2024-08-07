@@ -31,7 +31,6 @@ export async function getSessionId() {
 /*  Account ID api call
     params: none
     Return: Promise<void>
-    Todo: make it work with returning nothing
 */
 export async function getAccountId() {
   const response = await axios.get(ISERV_ACCT_ENDPOINT);

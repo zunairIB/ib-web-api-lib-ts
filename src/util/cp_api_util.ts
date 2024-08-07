@@ -1,3 +1,6 @@
+import axios from "axios"
+import https from "https"
+
 //Contract Details: /iserver/contract/{conid}/info response
 export interface Contract {
   "r_t_h": boolean,
@@ -178,3 +181,9 @@ export interface MktDataType {
   topic?:string,
 }
 
+// This is to ignore the SSL cert requirement. Please see: https://ibkrcampus.com/ibkr-api-page/cpapi-v1/#cpgw-faq-q-link-1
+export const axiosObj = axios.create({
+  httpsAgent: new https.Agent({  
+    rejectUnauthorized: false
+  })
+});

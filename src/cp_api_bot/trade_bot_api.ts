@@ -9,7 +9,6 @@ import {
   Tracker,
   sleep,
 } from "../util/cp_api_util";
-import { MarketDataWebsocket } from "../ws/websocket_md";
 import {
   authStatus,
   getAccountId,
@@ -90,7 +89,7 @@ export async function runTradeStrat(
   }
 }
 
-async function main() {
+async function runBot() {
   // log auth status
   authStatus();
   await axios.get(PORTFOLIO_ACCOUNTS_ENDPOINT);
@@ -137,11 +136,18 @@ async function main() {
     if (Object.keys(oldX).length != 0) {
       runTradeStrat(conidsArr, oldX, curr);
     }
-  }, 1000);
+  }, 5000);
 
   setTimeout(() => {
     clearInterval(snapInter);
-  }, 60000);
+  }, 120000);
 }
 
-export default main();
+try {
+  runBot()
+}
+catch(e)
+{
+  const error = (e as Error).message
+  console.log(error)
+}
