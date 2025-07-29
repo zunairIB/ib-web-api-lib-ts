@@ -1,7 +1,7 @@
 // import axios
 import { axiosObj } from "../../util/cp_api_util";
 
-// NB : Run command = 'npm run auth'
+// NB : Run command = 'npm run auth_request'
 
 // base url for iserver api requests
 const BASE_URL = "https://localhost:5000/v1/api";

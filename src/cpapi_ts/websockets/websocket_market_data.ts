@@ -18,7 +18,7 @@ async function getSessionId() {
   return response.data.session;
 }
 
-class MdSocket {
+export class MdSocket {
   private ws: WebSocket;
 
   constructor(url: string) {
@@ -29,15 +29,17 @@ class MdSocket {
     this.ws.on("error", this.onError);
   }
 
-  private onOpen = async () => {
+  private onOpen = async (conids:[], fields:[]) => {
     this.ws.send(await getSessionId());
 
     console.log("Connected");
     sleep(3000);
-    const conids = ["265598", "8314"];
+    // const conids = ["265598", "8314"];
+
+    const fieldString = fields.toString();
 
     for (var conid of conids) {
-      this.ws.send("smd+" + conid + '+{"fields":["31","84","86"]}');
+      this.ws.send(`smd + ${conid}+${fieldString}`);
     }
   };
 

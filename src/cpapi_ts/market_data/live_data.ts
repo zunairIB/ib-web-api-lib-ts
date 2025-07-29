@@ -18,7 +18,7 @@ interface MktDataRequestI {
     NB: Mkt Data Snapshot may need to be called a few times
 */
 export async function getMktDataSnap(mktDataRequest: MktDataRequestI) {
-  var mktData = await axiosObj.get(MD_SNAP_ENDPOINT, { params: mktDataRequest });
+  let mktData = await axiosObj.get(MD_SNAP_ENDPOINT, { params: mktDataRequest });
   mktData = await axiosObj.get(MD_SNAP_ENDPOINT, { params: mktDataRequest });
   mktData = await axiosObj.get(MD_SNAP_ENDPOINT, { params: mktDataRequest });
   console.log(mktData.data);

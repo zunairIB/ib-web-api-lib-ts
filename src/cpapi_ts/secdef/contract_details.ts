@@ -9,8 +9,8 @@ const SECDEF_SEARCH_ENDPOINT = `${BASE_URL}/iserver/secdef/search`;
 // Params for Secdef Search
 interface SecdefSearchParamsI {
   symbol: string;
-  name: boolean;
-  secType: string;
+  name?: boolean;
+  secType?: string;
 }
 
 /*  Security Definition by conid search api call
@@ -26,7 +26,7 @@ async function secdefSearch(
 }
 
 function main() {
-  const secdefSearchParams = { symbol: "F", name: false, secType: "STK" };
+  const secdefSearchParams = { symbol: "AAPL", secType: "OPT" };
   secdefSearch(secdefSearchParams);
 }
 
@@ -38,5 +38,3 @@ catch(e)
   const error = (e as Error).message
   console.log(error)
 }
-
-export default main();

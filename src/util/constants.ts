@@ -20,3 +20,4 @@ export const MD_SNAP_ENDPOINT = `${BASE_URL}/iserver/marketdata/snapshot`;
 export const PORTFOLIO_ACCOUNTS_ENDPOINT = `${BASE_URL}/portfolio/accounts`;
 
 //export const PORTFOLIO_POSITION_ENDPOINT = `${BASE_URL}/portfolio/${accountId}/position/`
+
